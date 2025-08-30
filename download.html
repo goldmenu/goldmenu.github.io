@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Download - Gold Menu</title>
+<style>
+  body { background: #000; color: #ffd700; font-family: Arial, sans-serif; text-align: center; padding: 40px; }
+  a { color: #ffd700; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  button { padding: 15px 30px; font-size: 18px; background: #ffd700; border: none; color: #000; cursor: pointer; border-radius: 8px; margin-top: 20px; }
+  button:disabled { background: #555; cursor: not-allowed; }
+</style>
+</head>
+<body>
+
+<h1>Download Gold Menu</h1>
+<p>Please agree to the <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a> before downloading.</p>
+
+<label>
+  <input type="checkbox" id="agree"> I agree to the Privacy Policy and Terms of Service
+</label><br>
+
+<a href="GoldMenu.zip" id="downloadBtn" download>
+  <button id="btn" disabled>Download Now</button>
+</a>
+
+<script>
+  const checkbox = document.getElementById('agree');
+  const btn = document.getElementById('btn');
+
+  checkbox.addEventListener('change', () => {
+    btn.disabled = !checkbox.checked;
+  });
+</script>
+
+</body>
+</html>
