@@ -1,56 +1,104 @@
-<!-- Hamburger Button -->
-<span class="menu-btn" onclick="openNav()">☰</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gold Menu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #ffd700;
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      border-bottom: 2px solid #ffd700;
+    }
+    main {
+      padding: 40px;
+      text-align: center;
+    }
+    a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Sidebar */
+    .menu-btn {
+      font-size: 28px;
+      cursor: pointer;
+      padding: 15px;
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      color: #ffd700;
+      z-index: 1001;
+    }
+    .side-nav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #000;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      box-shadow: 2px 0 10px rgba(255, 215, 0, 0.3);
+      z-index: 1000;
+    }
+    .side-nav a {
+      padding: 12px 25px;
+      text-decoration: none;
+      font-size: 20px;
+      color: #ffd700;
+      display: block;
+      transition: 0.2s;
+    }
+    .side-nav a:hover {
+      background: #111;
+    }
+    .side-nav .closebtn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hamburger Button -->
+  <span class="menu-btn" onclick="openNav()">☰</span>
 
-<!-- Sidebar Menu -->
-<div id="mySidenav" class="side-nav">
-  <a href="javascript:void(0)" onclick="closeNav()">✖ Close</a>
-  <a href="index.html">🏠 Home</a>
-  <a href="privacy policy.html">🔒 Privacy Policy</a>
-  <a href="terms of service.html">📜 Terms of Service</a>
-  <a href="GoldMenu.exe">⬇️ Download</a>
-</div>
+  <!-- Sidebar -->
+  <div id="mySidenav" class="side-nav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">✖</a>
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="GoldMenu.exe">Download</a>
+  </div>
 
-<style>
-  .menu-btn {
-    font-size: 30px;
-    cursor: pointer;
-    padding: 15px;
-    position: fixed;
-    left: 15px;
-    top: 15px;
-    color: gold;
-    z-index: 2;
-  }
-  .side-nav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.3s;
-    padding-top: 60px;
-    box-shadow: 2px 0 15px rgba(0,0,0,0.8);
-  }
-  .side-nav a {
-    padding: 15px 25px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #ffd700;
-    display: block;
-    transition: 0.2s;
-  }
-  .side-nav a:hover {
-    background: #333;
-  }
-</style>
+  <header>Gold Menu</header>
+  <main>
+    <h1>Welcome to Gold Menu</h1>
+    <p>The premium macro and automation tool.  
+       Manage your configuration easily, with secure subscription verification through Discord.</p>
+    <p><a href="GoldMenu.exe">Download Now</a></p>
+  </main>
 
-<script>
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-  }
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
-</script>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+</body>
+</html>
