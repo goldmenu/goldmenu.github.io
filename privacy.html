@@ -1,47 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Privacy Policy - Gold Menu</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #ffd700;
-      padding: 20px;
-    }
-    h1, h2 {
-      color: #ffd700;
-    }
-    a {
-      color: #ffd700;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Privacy Policy - Gold Menu</title>
+<style>
+body { margin:0; font-family:Arial,sans-serif; background:#000; color:#ffd700; padding:20px; }
+h1,h2 { color:#ffd700; }
+a { color:#ffd700; text-decoration:none; }
+a:hover { text-decoration:underline; }
+.menu-btn { font-size:28px; cursor:pointer; padding:15px; position:fixed; top:15px; left:15px; color:#ffd700; z-index:1001; }
+.side-nav { height:100%; width:0; position:fixed; top:0; left:0; background-color:#000; overflow-x:hidden; transition:0.3s; padding-top:60px; box-shadow:2px 0 10px rgba(255,215,0,0.3); z-index:1000; }
+.side-nav a { padding:12px 25px; text-decoration:none; font-size:20px; color:#ffd700; display:block; transition:0.2s; }
+.side-nav a:hover { background:#111; }
+.side-nav .closebtn { position:absolute; top:10px; right:20px; font-size:30px; }
+</style>
 </head>
 <body>
-  <h1>Privacy Policy</h1>
-  <p>Gold Menu values your privacy. Our application does not collect or share personal information beyond what is required for functionality.</p>
 
-  <h2>Data We Collect</h2>
-  <ul>
-    <li>Verification that AutoHotkey is installed on your system.</li>
-    <li>Verification that your Gold Menu configuration exists.</li>
-    <li>Your unique Discord subscriber code (used only for access validation).</li>
-  </ul>
+<span class="menu-btn" onclick="openNav()">☰</span>
+<div id="mySidenav" class="side-nav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">✖</a>
+  <a href="index.html">Home</a>
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="terms.html">Terms of Service</a>
+  <a href="download.html">Download</a>
+</div>
 
-  <h2>Data We Do Not Collect</h2>
-  <ul>
-    <li>We do not collect personal files, browsing history, or system information unrelated to Gold Menu.</li>
-    <li>We do not sell or share your data with third parties.</li>
-  </ul>
+<h1>Privacy Policy</h1>
+<p>Gold Menu values your privacy. Our app does not collect or share personal information beyond what is required for functionality.</p>
 
-  <h2>Contact</h2>
-  <p>If you have questions about this policy, contact us at:  
-  <a href="mailto:raphaelcsc911@gmail.com">raphaelcsc911@gmail.com</a></p>
+<h2>Data We Collect</h2>
+<ul>
+  <li>Check if AutoHotkey is installed.</li>
+  <li>Check if macro/config files created by Gold Menu exist.</li>
+  <li>Your unique Discord subscriber code (for access verification only).</li>
+</ul>
+
+<h2>Data We Do Not Collect</h2>
+<ul>
+  <li>No personal files or system info unrelated to Gold Menu.</li>
+  <li>No selling or sharing of data with third parties.</li>
+</ul>
+
+<h2>Contact</h2>
+<p>Email: <a href="mailto:raphaelcsc911@gmail.com">raphaelcsc911@gmail.com</a></p>
+
+<script>
+function openNav() { document.getElementById("mySidenav").style.width = "250px"; }
+function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
+</script>
+
 </body>
 </html>
