@@ -1,52 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Terms of Service - Gold Menu</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #ffd700;
-      padding: 20px;
-    }
-    h1, h2 {
-      color: #ffd700;
-    }
-    a {
-      color: #ffd700;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Terms of Service - Gold Menu</title>
+<style>
+body { margin:0; font-family:Arial,sans-serif; background:#000; color:#ffd700; padding:20px; }
+h1,h2 { color:#ffd700; }
+a { color:#ffd700; text-decoration:none; }
+a:hover { text-decoration:underline; }
+.menu-btn { font-size:28px; cursor:pointer; padding:15px; position:fixed; top:15px; left:15px; color:#ffd700; z-index:1001; }
+.side-nav { height:100%; width:0; position:fixed; top:0; left:0; background-color:#000; overflow-x:hidden; transition:0.3s; padding-top:60px; box-shadow:2px 0 10px rgba(255,215,0,0.3); z-index:1000; }
+.side-nav a { padding:12px 25px; text-decoration:none; font-size:20px; color:#ffd700; display:block; transition:0.2s; }
+.side-nav a:hover { background:#111; }
+.side-nav .closebtn { position:absolute; top:10px; right:20px; font-size:30px; }
+</style>
 </head>
 <body>
-  <h1>Terms of Service</h1>
 
-  <h2>Subscription Requirement</h2>
-  <p>Gold Menu requires an active subscription to the Raphaelcsc911 YouTube channel.  
-  Access is verified with a subscriber code linked to your Discord account.</p>
+<span class="menu-btn" onclick="openNav()">☰</span>
+<div id="mySidenav" class="side-nav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">✖</a>
+  <a href="index.html">Home</a>
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="terms.html">Terms of Service</a>
+  <a href="download.html">Download</a>
+</div>
 
-  <h2>Permitted Use</h2>
-  <ul>
-    <li>Use Gold Menu only for your personal, non-commercial purposes.</li>
-    <li>Ensure AutoHotkey is installed on your system for full functionality.</li>
-  </ul>
+<h1>Terms of Service</h1>
 
-  <h2>Restrictions</h2>
-  <ul>
-    <li>You may not redistribute, sell, or share Gold Menu without explicit permission.</li>
-    <li>You may not modify the software for public release or resale.</li>
-    <li>You may not use Gold Menu for harmful or illegal activities.</li>
-  </ul>
+<h2>Subscription Requirement</h2>
+<p>Gold Menu requires a subscription to Raphaelcsc911 YouTube channel. Access is verified with your Discord subscriber code.</p>
 
-  <h2>Disclaimer</h2>
-  <p>Gold Menu is provided “as is.” We are not responsible for issues, damages, or misuse resulting from its use.</p>
+<h2>Permitted Use</h2>
+<ul>
+  <li>Personal, non-commercial use only.</li>
+  <li>AutoHotkey must be installed for full functionality.</li>
+</ul>
 
-  <h2>Contact</h2>
-  <p>Questions? Reach us at <a href="mailto:raphaelcsc911@gmail.com">raphaelcsc911@gmail.com</a></p>
+<h2>Restrictions</h2>
+<ul>
+  <li>No redistribution, resale, or sharing without permission.</li>
+  <li>No modification for public release or commercial use.</li>
+  <li>No harmful or illegal use.</li>
+</ul>
+
+<h2>Disclaimer</h2>
+<p>Gold Menu is provided “as is.” We are not responsible for misuse or damages.</p>
+
+<h2>Contact</h2>
+<p>Email: <a href="mailto:raphaelcsc911@gmail.com">raphaelcsc911@gmail.com</a></p>
+
+<script>
+function openNav() { document.getElementById("mySidenav").style.width = "250px"; }
+function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
+</script>
+
 </body>
 </html>
