@@ -13,9 +13,18 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary: #ffd700;
+            --primary-dark: #e6c200;
+            --dark: #000;
+            --dark-light: #1a1a1a;
+            --text: #fff;
+            --text-muted: #aaa;
+        }
+        
         body {
-            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
-            color: #ffd700;
+            background: linear-gradient(135deg, var(--dark-light) 0%, var(--dark) 100%);
+            color: var(--primary);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             padding: 20px;
@@ -45,7 +54,7 @@
         
         .logo-icon {
             font-size: 2.5rem;
-            color: #ffd700;
+            color: var(--primary);
         }
         
         .logo-text {
@@ -54,56 +63,59 @@
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
         
-        .menu-btn {
-            font-size: 28px;
-            cursor: pointer;
-            padding: 10px 15px;
-            color: #ffd700;
-            transition: 0.3s;
-            background: rgba(255, 215, 0, 0.1);
-            border-radius: 5px;
+        /* Tab Navigation */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
-        .menu-btn:hover {
-            color: #fff;
+        .tab-btn {
+            padding: 12px 25px;
+            background: rgba(255, 215, 0, 0.1);
+            border: none;
+            border-radius: 8px;
+            color: var(--primary);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .tab-btn:hover {
             background: rgba(255, 215, 0, 0.2);
         }
         
-        .side-nav {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background: rgba(0, 0, 0, 0.95);
-            overflow-x: hidden;
-            transition: 0.4s;
-            padding-top: 80px;
-            box-shadow: 2px 0 20px rgba(255, 215, 0, 0.5);
-            z-index: 1000;
+        .tab-btn.active {
+            background: var(--primary);
+            color: var(--dark);
+            font-weight: bold;
         }
         
-        .side-nav a {
-            padding: 15px 30px;
-            text-decoration: none;
-            font-size: 20px;
-            color: #ffd700;
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .tab-content.active {
             display: block;
-            transition: 0.3s;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
         }
         
-        .side-nav a:hover {
-            background: rgba(255, 215, 0, 0.1);
-            padding-left: 40px;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
-        .side-nav .closebtn {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 30px;
-            cursor: pointer;
+        /* Content Box - Used on multiple pages */
+        .content-box {
+            max-width: 900px;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            border-left: 4px solid var(--primary);
         }
         
         h1 {
@@ -115,29 +127,24 @@
         h2 {
             font-size: 2rem;
             margin-bottom: 15px;
-            color: #ffd700;
+            color: var(--primary);
         }
         
-        /* Content Box - Used on multiple pages */
-        .content-box {
-            max-width: 900px;
-            margin: 20px auto;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-            border-left: 4px solid #ffd700;
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
         }
         
         p, li {
-            color: #fff;
+            color: var(--text);
             line-height: 1.6;
             margin-bottom: 15px;
             font-size: 1.1rem;
         }
         
         a {
-            color: #ffd700;
+            color: var(--primary);
             text-decoration: none;
             transition: 0.3s;
         }
@@ -165,7 +172,7 @@
             margin-left: auto;
             margin-right: auto;
             line-height: 1.6;
-            color: #ccc;
+            color: var(--text-muted);
         }
         
         .cta-button {
@@ -174,8 +181,8 @@
             padding: 15px 30px;
             font-size: 1.2rem;
             font-weight: bold;
-            color: #000;
-            background: linear-gradient(to right, #ffd700, #ffaa00);
+            color: var(--dark);
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
             border: none;
             border-radius: 10px;
             cursor: pointer;
@@ -185,7 +192,6 @@
         }
         
         .cta-button:hover {
-            background: linear-gradient(to right, #e6c200, #e69900);
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
             text-decoration: none;
@@ -208,7 +214,7 @@
             padding: 20px;
             background: rgba(0, 0, 0, 0.4);
             border-radius: 10px;
-            border-left: 4px solid #ffd700;
+            border-left: 4px solid var(--primary);
         }
         
         .checkbox-container {
@@ -221,7 +227,7 @@
         input[type="checkbox"] {
             width: 20px;
             height: 20px;
-            accent-color: #ffd700;
+            accent-color: var(--primary);
         }
         
         label {
@@ -234,9 +240,9 @@
             padding: 18px 40px;
             font-size: 1.2rem;
             font-weight: bold;
-            background: linear-gradient(to right, #ffd700, #ffaa00);
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
             border: none;
-            color: #000;
+            color: var(--dark);
             cursor: pointer;
             border-radius: 50px;
             margin-top: 20px;
@@ -264,7 +270,7 @@
         .download-info {
             margin-top: 30px;
             font-size: 0.9rem;
-            color: #aaa;
+            color: var(--text-muted);
         }
         
         /* Features Section */
@@ -283,13 +289,13 @@
             padding: 25px;
             background: rgba(0, 0, 0, 0.4);
             border-radius: 10px;
-            border-top: 3px solid #ffd700;
+            border-top: 3px solid var(--primary);
         }
         
         .feature i {
             font-size: 2.5rem;
             margin-bottom: 15px;
-            color: #ffd700;
+            color: var(--primary);
         }
         
         .feature h3 {
@@ -303,7 +309,7 @@
             padding: 30px 0;
             margin-top: 60px;
             border-top: 1px solid rgba(255, 215, 0, 0.3);
-            color: #aaa;
+            color: var(--text-muted);
             font-size: 0.9rem;
         }
         
@@ -333,6 +339,10 @@
             .logo-text {
                 font-size: 1.6rem;
             }
+            
+            .tabs {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -343,44 +353,132 @@
                 <div class="logo-icon"><i class="fas fa-crown"></i></div>
                 <div class="logo-text">Gold Menu</div>
             </div>
-            <div class="menu-btn" onclick="openNav()">☰</div>
         </header>
 
-        <div id="mySidenav" class="side-nav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">✖</a>
-            <a href="index.html"><i class="fas fa-home"></i> Home</a>
-            <a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
-            <a href="terms.html"><i class="fas fa-file-contract"></i> Terms of Service</a>
-            <a href="download.html"><i class="fas fa-download"></i> Download</a>
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="home">Home</button>
+            <button class="tab-btn" data-tab="download">Download</button>
+            <button class="tab-btn" data-tab="privacy">Privacy Policy</button>
+            <button class="tab-btn" data-tab="terms">Terms of Service</button>
         </div>
 
-        <div class="hero">
-            <h1>Welcome to Gold Menu</h1>
-            <p class="subtitle">The ultimate tool for managing macros and custom keybinds. Easily configure your setup and receive automatic updates for Gold Menu.</p>
-            
-            <div class="content-box">
-                <h2>Premium Macro Management</h2>
-                <p>Gold Menu provides a powerful yet easy-to-use interface for creating and managing macros and custom keybinds. Whether you're a gamer, streamer, or power user, Gold Menu helps you optimize your workflow.</p>
+        <!-- Home Tab -->
+        <div id="home" class="tab-content active">
+            <div class="hero">
+                <h1>Welcome to Gold Menu</h1>
+                <p class="subtitle">The ultimate tool for managing macros and custom keybinds. Easily configure your setup and receive automatic updates for Gold Menu.</p>
                 
-                <div class="features">
-                    <div class="feature">
-                        <i class="fas fa-bolt"></i>
-                        <h3>Lightning Fast</h3>
-                        <p>Optimized for performance with instant response times and smooth animations.</p>
+                <div class="content-box">
+                    <h2>Premium Macro Management</h2>
+                    <p>Gold Menu provides a powerful yet easy-to-use interface for creating and managing macros and custom keybinds. Whether you're a gamer, streamer, or power user, Gold Menu helps you optimize your workflow.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-bolt"></i>
+                            <h3>Lightning Fast</h3>
+                            <p>Optimized for performance with instant response times and smooth animations.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-lock"></i>
+                            <h3>Secure & Private</h3>
+                            <p>Your data stays on your device. No tracking, no ads, no telemetry.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-palette"></i>
+                            <h3>Customizable</h3>
+                            <p>Choose from multiple keybinds and configurations to suit your needs.</p>
+                        </div>
                     </div>
-                    <div class="feature">
-                        <i class="fas fa-lock"></i>
-                        <h3>Secure & Private</h3>
-                        <p>Your data stays on your device. No tracking, no ads, no telemetry.</p>
+                    
+                    <button class="cta-button switch-tab" data-tab="download">Download Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Tab -->
+        <div id="download" class="tab-content">
+            <div class="hero">
+                <h1>Download Gold Menu</h1>
+                <p class="subtitle">Gold Menu system is Easy to use, customizable, and clean.</p>
+                
+                <div class="download-card">
+                    <div class="agreement">
+                        <p>Before downloading, please read and agree to our:</p>
+                        <ul>
+                            <li><a href="javascript:void(0)" class="switch-tab" data-tab="privacy">Privacy Policy</a></li>
+                            <li><a href="javascript:void(0)" class="switch-tab" data-tab="terms">Terms of Service</a></li>
+                        </ul>
                     </div>
-                    <div class="feature">
-                        <i class="fas fa-palette"></i>
-                        <h3>Customizable</h3>
-                        <p>Choose from multiple keybinds and configurations to suit your needs.</p>
+                    
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="agree">
+                        <label for="agree">I agree to the Privacy Policy and Terms of Service</label>
+                    </div>
+                    
+                    <a href="GoldMenuSetup.exe" id="downloadLink" download>
+                        <button class="download-btn" id="downloadBtn" disabled>
+                            <i class="fas fa-download"></i> Download Now
+                        </button>
+                    </a>
+                    
+                    <div class="download-info">
+                        <p>Version: 2.1.0 | Size: 13 MB | System: Windows 10/11</p>
                     </div>
                 </div>
-                
-                <a href="download.html" class="cta-button">Download Now</a>
+            </div>
+        </div>
+
+        <!-- Privacy Policy Tab -->
+        <div id="privacy" class="tab-content">
+            <div class="content-box">
+                <h1>Privacy Policy</h1>
+                <p>Gold Menu values your privacy. Our app does not collect or share personal information beyond what is required for functionality.</p>
+
+                <h2>Data We Collect</h2>
+                <ul>
+                    <li>Check if AutoHotkey is installed.</li>
+                    <li>Check if macro/config files created by Gold Menu exist.</li>
+                    <li>Your unique Discord subscriber code (for access verification only).</li>
+                </ul>
+
+                <h2>Data We Do Not Collect</h2>
+                <ul>
+                    <li>No personal files or system info unrelated to Gold Menu.</li>
+                    <li>No selling or sharing of data with third parties.</li>
+                </ul>
+
+                <h2>Contact</h2>
+                <p>Email: <a href="mailto:raphaelcsc911@gmail.com">raphaelcsc911@gmail.com</a></p>
+            </div>
+        </div>
+
+        <!-- Terms of Service Tab -->
+        <div id="terms" class="tab-content">
+            <div class="content-box">
+                <h1>Terms of Service</h1>
+
+                <h2>Subscription Requirement</h2>
+                <p>Gold Menu requires a subscription to Raphaelcsc911 YouTube channel. Access is verified with your Discord subscriber code.</p>
+
+                <h2>Permitted Use</h2>
+                <ul>
+                    <li>Personal, non-commercial use only.</li>
+                    <li>AutoHotkey must be installed for full functionality.</li>
+                </ul>
+
+                <h2>Restrictions</h2>
+                <ul>
+                    <li>No redistribution, resale, or sharing without permission.</li>
+                    <li>No modification for public release or commercial use.</li>
+                    <li>No harmful or illegal use.</li>
+                </ul>
+
+                <h2>Disclaimer</h2>
+                <p>Gold Menu is provided "as is." We are not responsible for misuse or damages.</p>
+
+                <h2>Contact</h2>
+                <p>Email: <a href="mailto:raphaelcsc911@gmail.com">raphaelcsc911@gmail.com</a></p>
             </div>
         </div>
 
@@ -395,6 +493,41 @@
     </div>
 
     <script>
+        // Tab functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const switchTabBtns = document.querySelectorAll('.switch-tab');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Switch tab from links
+        switchTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to target button and content
+                document.querySelector(`.tab-btn[data-tab="${tabId}"]`).classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Download agreement functionality
         const checkbox = document.getElementById('agree');
         const btn = document.getElementById('downloadBtn');
         
@@ -403,24 +536,6 @@
                 btn.disabled = !checkbox.checked; 
             });
         }
-
-        function openNav() { 
-            document.getElementById("mySidenav").style.width = "280px"; 
-        }
-        
-        function closeNav() { 
-            document.getElementById("mySidenav").style.width = "0"; 
-        }
-        
-        // Close the navigation when clicking outside of it
-        document.addEventListener('click', function(event) {
-            const nav = document.getElementById('mySidenav');
-            const menuBtn = document.querySelector('.menu-btn');
-            if (event.target !== menuBtn && !menuBtn.contains(event.target) && 
-                event.target !== nav && !nav.contains(event.target)) {
-                closeNav();
-            }
-        });
     </script>
 </body>
 </html>
