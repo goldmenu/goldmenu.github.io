@@ -1,56 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Gold Menu</title>
-<style>
-  body { margin:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#000; color:#ffd700; }
-  header { padding:40px 20px; text-align:center; font-size:3rem; font-weight:bold; border-bottom:2px solid #ffd700; }
-  main { padding:60px 20px; text-align:center; max-width:900px; margin:0 auto; }
-  main p { font-size:1.2rem; line-height:1.6; color:#fff; }
-  a { color:#ffd700; text-decoration:none; transition:0.3s; }
-  a:hover { text-decoration:underline; }
-  .cta-button { display:inline-block; margin-top:20px; padding:15px 30px; font-size:1.2rem; font-weight:bold; color:#000; background:#ffd700; border:none; border-radius:10px; cursor:pointer; text-decoration:none; transition:0.3s; }
-  .cta-button:hover { background:#e6c200; }
-
-  /* Sidebar */
-  .menu-btn { font-size:28px; cursor:pointer; padding:15px; position:fixed; top:15px; left:15px; color:#ffd700; z-index:1001; transition:0.3s; }
-  .menu-btn:hover { color:#fff; }
-  .side-nav { height:100%; width:0; position:fixed; top:0; left:0; background:#000; overflow-x:hidden; transition:0.4s; padding-top:60px; box-shadow:2px 0 20px rgba(255,215,0,0.5); z-index:1000; }
-  .side-nav a { padding:15px 30px; text-decoration:none; font-size:20px; color:#ffd700; display:block; transition:0.3s; border-bottom:1px solid rgba(255,215,0,0.2); }
-  .side-nav a:hover { background:#111; }
-  .side-nav .closebtn { position:absolute; top:10px; right:20px; font-size:30px; cursor:pointer; }
-
-  /* Premium Box effect */
-  .feature-box { background:#111; padding:30px; margin:20px 0; border-radius:15px; box-shadow:0 0 20px rgba(255,215,0,0.3); }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Menu - Premium Macro Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: #ffd700;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #ffd700;
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .menu-btn {
+            font-size: 28px;
+            cursor: pointer;
+            padding: 10px 15px;
+            color: #ffd700;
+            transition: 0.3s;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 5px;
+        }
+        
+        .menu-btn:hover {
+            color: #fff;
+            background: rgba(255, 215, 0, 0.2);
+        }
+        
+        .side-nav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.95);
+            overflow-x: hidden;
+            transition: 0.4s;
+            padding-top: 80px;
+            box-shadow: 2px 0 20px rgba(255, 215, 0, 0.5);
+            z-index: 1000;
+        }
+        
+        .side-nav a {
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #ffd700;
+            display: block;
+            transition: 0.3s;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .side-nav a:hover {
+            background: rgba(255, 215, 0, 0.1);
+            padding-left: 40px;
+        }
+        
+        .side-nav .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+        
+        /* Content Box - Used on multiple pages */
+        .content-box {
+            max-width: 900px;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            border-left: 4px solid #ffd700;
+        }
+        
+        p, li {
+            color: #fff;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        /* Home Page Specific */
+        .hero {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            color: #ccc;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #000;
+            background: linear-gradient(to right, #ffd700, #ffaa00);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+        
+        .cta-button:hover {
+            background: linear-gradient(to right, #e6c200, #e69900);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+            text-decoration: none;
+        }
+        
+        /* Download Page Specific */
+        .download-card {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 0 auto;
+            max-width: 600px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+        }
+        
+        .agreement {
+            text-align: left;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            border-left: 4px solid #ffd700;
+        }
+        
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #ffd700;
+        }
+        
+        label {
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #ffd700, #ffaa00);
+            border: none;
+            color: #000;
+            cursor: pointer;
+            border-radius: 50px;
+            margin-top: 20px;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-btn:disabled {
+            background: linear-gradient(to right, #555, #777);
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        
+        .download-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+        }
+        
+        .download-btn:active:not(:disabled) {
+            transform: translateY(1px);
+        }
+        
+        .download-info {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Features Section */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .feature {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            border-top: 3px solid #ffd700;
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+        
+        .feature h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .download-card, .content-box {
+                padding: 25px;
+            }
+            
+            .feature {
+                min-width: 100%;
+            }
+            
+            .logo-text {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-crown"></i></div>
+                <div class="logo-text">Gold Menu</div>
+            </div>
+            <div class="menu-btn" onclick="openNav()">☰</div>
+        </header>
 
-<span class="menu-btn" onclick="openNav()">☰</span>
-<div id="mySidenav" class="side-nav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">✖</a>
-  <a href="index.html">Home</a>
-  <a href="privacy.html">Privacy Policy</a>
-  <a href="terms.html">Terms of Service</a>
-  <a href="download.html">Download</a>
-</div>
+        <div id="mySidenav" class="side-nav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">✖</a>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+            <a href="terms.html"><i class="fas fa-file-contract"></i> Terms of Service</a>
+            <a href="download.html"><i class="fas fa-download"></i> Download</a>
+        </div>
 
-<header>Gold Menu</header>
+        <div class="hero">
+            <h1>Welcome to Gold Menu</h1>
+            <p class="subtitle">The ultimate tool for managing macros and custom keybinds. Easily configure your setup and receive automatic updates for Gold Menu.</p>
+            
+            <div class="content-box">
+                <h2>Premium Macro Management</h2>
+                <p>Gold Menu provides a powerful yet easy-to-use interface for creating and managing macros and custom keybinds. Whether you're a gamer, streamer, or power user, Gold Menu helps you optimize your workflow.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Lightning Fast</h3>
+                        <p>Optimized for performance with instant response times and smooth animations.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-lock"></i>
+                        <h3>Secure & Private</h3>
+                        <p>Your data stays on your device. No tracking, no ads, no telemetry.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-palette"></i>
+                        <h3>Customizable</h3>
+                        <p>Choose from multiple keybinds and configurations to suit your needs.</p>
+                    </div>
+                </div>
+                
+                <a href="download.html" class="cta-button">Download Now</a>
+            </div>
+        </div>
 
-<main>
-  <div class="feature-box">
-    <h1>Welcome to Gold Menu</h1>
-    <p>The ultimate tool for managing macros and custom keybinds.<br>
-       Easily configure your setup and receive automatic updates for Gold Menu.</p>
-    <a href="download.html" class="cta-button">Download Now</a>
-  </div>
-</main>
+        <footer>
+            <p>© 2023 Gold Menu. All rights reserved.</p>
+            <p>Contact: <a href="mailto:raphaelcsc911@gmail.com">raphaelcsc911@gmail.com</a> | Follow us: 
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+            </p>
+        </footer>
+    </div>
 
-<script>
-function openNav() { document.getElementById("mySidenav").style.width = "280px"; }
-function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
-</script>
+    <script>
+        const checkbox = document.getElementById('agree');
+        const btn = document.getElementById('downloadBtn');
+        
+        if (checkbox && btn) {
+            checkbox.addEventListener('change', () => { 
+                btn.disabled = !checkbox.checked; 
+            });
+        }
 
+        function openNav() { 
+            document.getElementById("mySidenav").style.width = "280px"; 
+        }
+        
+        function closeNav() { 
+            document.getElementById("mySidenav").style.width = "0"; 
+        }
+        
+        // Close the navigation when clicking outside of it
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('mySidenav');
+            const menuBtn = document.querySelector('.menu-btn');
+            if (event.target !== menuBtn && !menuBtn.contains(event.target) && 
+                event.target !== nav && !nav.contains(event.target)) {
+                closeNav();
+            }
+        });
+    </script>
 </body>
 </html>
