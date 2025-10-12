@@ -325,7 +325,7 @@
             }
             
             h2 {
-                font-size: 1.8rem;
+                font-size:1.8rem;
             }
             
             .download-card, .content-box {
@@ -370,7 +370,7 @@
                 <p class="subtitle">The ultimate tool for managing macros and custom keybinds. Easily configure your setup and receive automatic updates for Gold Menu.</p>
                 
                 <div class="content-box">
-                    <h2> Macro Management</h2>
+                    <h2>Macro Management</h2>
                     <p>Gold Menu provides a powerful yet easy-to-use interface for creating and managing macros and custom keybinds. Whether you're a gamer, streamer, or power user, Gold Menu helps you optimize your workflow.</p>
                     
                     <div class="features">
@@ -447,9 +447,6 @@
                     <li>No personal files or system info unrelated to Gold Menu.</li>
                     <li>No selling or sharing of data with third parties.</li>
                 </ul>
-
-                <h2>Contact</h2>
-                <p>Email: <a href="mailto:raphaelcsc911@gmail.com">raphaelcsc911@gmail.com</a></p>
             </div>
         </div>
 
@@ -476,18 +473,13 @@
 
                 <h2>Disclaimer</h2>
                 <p>Gold Menu is provided "as is." We are not responsible for misuse or damages.</p>
-
-                <h2>Contact</h2>
-                <p>Email: <a href="mailto:raphaelcsc911@gmail.com">raphaelcsc911@gmail.com</a></p>
             </div>
         </div>
 
 <footer>
     <p>© 2023 Gold Menu. All rights reserved.</p>
     <p>
-        Contact: <a href="mailto:raphaelcsc911@gmail.com">raphaelcsc911@gmail.com</a> | 
         Follow us:
-        <a href="https://twitter.com/your_twitter_username" target="_blank"><i class="fab fa-twitter"></i></a>
         <a href="https://youtube.com/@raphaelcsc911" target="_blank"><i class="fab fa-youtube"></i></a>
         <a href="https://discord.gg/Gm3UV26FjJ" target="_blank"><i class="fab fa-discord"></i></a>
     </p>
@@ -503,36 +495,25 @@
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const tabId = btn.getAttribute('data-tab');
-                
-                // Remove active class from all buttons and contents
                 tabBtns.forEach(b => b.classList.remove('active'));
                 tabContents.forEach(c => c.classList.remove('active'));
-                
-                // Add active class to clicked button and corresponding content
                 btn.classList.add('active');
                 document.getElementById(tabId).classList.add('active');
             });
         });
         
-        // Switch tab from links
         switchTabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const tabId = btn.getAttribute('data-tab');
-                
-                // Remove active class from all buttons and contents
                 tabBtns.forEach(b => b.classList.remove('active'));
                 tabContents.forEach(c => c.classList.remove('active'));
-                
-                // Add active class to target button and content
                 document.querySelector(`.tab-btn[data-tab="${tabId}"]`).classList.add('active');
                 document.getElementById(tabId).classList.add('active');
             });
         });
         
-        // Download agreement functionality
         const checkbox = document.getElementById('agree');
         const btn = document.getElementById('downloadBtn');
-        
         if (checkbox && btn) {
             checkbox.addEventListener('change', () => { 
                 btn.disabled = !checkbox.checked; 
