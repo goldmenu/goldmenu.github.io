@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gold Menu Key</title>
+  <style>
+    /* Full page setup */
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      color: #ffd700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Key card */
+    .key-card {
+      background: rgba(255, 215, 0, 0.05);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 15px;
+      padding: 40px 60px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    .key-card h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .key-box {
+      font-size: 1.5rem;
+      font-weight: bold;
+      background: rgba(255,215,0,0.1);
+      padding: 15px 25px;
+      border-radius: 12px;
+      user-select: all;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .key-box:hover {
+      background: rgba(255,215,0,0.2);
+    }
+
+    .copy-msg {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #ccc;
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .copy-msg.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="key-card">
+    <h1>Your Gold Menu Key</h1>
+    <div class="key-box" id="keyBox">GoldMenuV2OMG</div>
+    <div class="copy-msg" id="copyMsg">Copied to clipboard!</div>
+  </div>
+
+  <script>
+    const keyBox = document.getElementById('keyBox');
+    const copyMsg = document.getElementById('copyMsg');
+
+    keyBox.addEventListener('click', () => {
+      navigator.clipboard.writeText(keyBox.textContent)
+        .then(() => {
+          copyMsg.classList.add('show');
+          setTimeout(() => copyMsg.classList.remove('show'), 1500);
+        })
+        .catch(err => console.error('Failed to copy:', err));
+    });
+  </script>
+</body>
+</html>
