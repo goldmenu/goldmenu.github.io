@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Ended</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(to bottom right, #f5f7fa, #c3cfe2);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            background: white;
+            border-radius: 12px;
+            padding: 40px 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+        
+        .book-gif {
+            max-width: 300px;
+            margin: 0 auto 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .book-gif img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .message {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            text-align: left;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: #f1f2f6;
+            border-radius: 50%;
+            color: #2c3e50;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: #3498db;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .message {
+                font-size: 1rem;
+                padding: 15px;
+            }
+            
+            .container {
+                padding: 25px 20px;
+            }
+            
+            .book-gif {
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Project Closed</h1>
+        <p class="subtitle">This project has come to an end</p>
+        
+        <div class="book-gif">
+            <!-- Replace with your actual chapter.gif -->
+            <img src="chapter.gif" alt="Book closing animation">
+        </div>
+        
+        <div class="message">
+            <p>Hey everyone,</p>
+            <br>
+            <p>I've decided to end this project. After careful consideration, I've chosen to move on to other things.</p>
+            <br>
+            
+            <div class="highlight">
+                <p><strong>Note:</strong> I didn't complete this project - I decided to stop working on it.</p>
+            </div>
+            
+            <p>Thanks to everyone who showed interest or supported this project along the way. I appreciate it.</p>
+            <br>
+            <p>All the best,</p>
+            <p>Gold</p>
+        </div>
+        
+        
+        <div class="footer">
+            <p>© 2023 Gold Menu. Page updated to reflect project closure.</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple fade in effect
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = 0;
+            document.body.style.transition = 'opacity 0.8s';
+            
+            setTimeout(function() {
+                document.body.style.opacity = 1;
+            }, 100);
+        });
+    </script>
+</body>
+</html>
